@@ -1,0 +1,28 @@
+<div class="blog-manage-container">
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title:</label>
+      <input id="title" formControlName="title"/>
+      <div *ngIf="blogForm.get('title')?.invalid && blogForm.get('title')?.touched">
+        <small *ngIf="blogForm.get('title')?.errors?.['required']">Title Required</small>
+        <small *ngIf="blogForm.get('title')?.errors?.['minlength']">Title must be at least 5 characters or more</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="content">Content:</label>
+      <input id="content" formControlName="content"/>
+      <div *ngIf="blogForm.get('content')?.invalid && blogForm.get('title')?.touched">
+        <small *ngIf="blogForm.get('content')?.errors?.['required']">Content Required</small>
+        <small *ngIf="blogForm.get('content')?.errors?.['minlength']">Content must be at least 20 characters or more</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="tags">Tags:</label>
+      <input id="tags" formControlName="tags"/>
+    </div>
+
+    <button type="submit" [disabled]="blogForm.invalid">Submit</button>
+  </form>
+</div>
