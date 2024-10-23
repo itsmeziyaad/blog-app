@@ -1,28 +1,32 @@
-<div class="blog-manage-container">
+<div class="container mt-5 blog-manage-container">
   <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="title">Title:</label>
-      <input id="title" formControlName="title"/>
-      <div *ngIf="blogForm.get('title')?.invalid && blogForm.get('title')?.touched">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input id="title" formControlName="title" class="form-control" />
+      <div *ngIf="blogForm.get('title')?.invalid && blogForm.get('title')?.touched" class="text-danger mt-1">
         <small *ngIf="blogForm.get('title')?.errors?.['required']">Title Required</small>
-        <small *ngIf="blogForm.get('title')?.errors?.['minlength']">Title must be at least 5 characters or more</small>
+        <small *ngIf="blogForm.get('title')?.errors?.['minlength']">
+          Title must be at least 5 characters or more
+        </small>
       </div>
     </div>
 
-    <div>
-      <label for="content">Content:</label>
-      <input id="content" formControlName="content"/>
-      <div *ngIf="blogForm.get('content')?.invalid && blogForm.get('title')?.touched">
+    <div class="mb-3">
+      <label for="content" class="form-label">Content:</label>
+      <textarea id="content" formControlName="content" class="form-control"></textarea>
+      <div *ngIf="blogForm.get('content')?.invalid && blogForm.get('content')?.touched" class="text-danger mt-1">
         <small *ngIf="blogForm.get('content')?.errors?.['required']">Content Required</small>
-        <small *ngIf="blogForm.get('content')?.errors?.['minlength']">Content must be at least 20 characters or more</small>
+        <small *ngIf="blogForm.get('content')?.errors?.['minlength']">
+          Content must be at least 20 characters or more
+        </small>
       </div>
     </div>
 
-    <div>
-      <label for="tags">Tags:</label>
-      <input id="tags" formControlName="tags"/>
+    <div class="mb-3">
+      <label for="tags" class="form-label">Tags:</label>
+      <input id="tags" formControlName="tags" class="form-control" />
     </div>
 
-    <button type="submit" [disabled]="blogForm.invalid">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="blogForm.invalid">Submit</button>
   </form>
 </div>
