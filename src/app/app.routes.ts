@@ -4,6 +4,8 @@ import { BlogManagementComponent } from './blog-management/blog-management.compo
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { BlogListComponent } from './blog-list/blog-list.component';
+import { BlogCreateComponent } from './blog-create/blog-create.component';
 
 export const routes: Routes = [
   {
@@ -30,5 +32,15 @@ export const routes: Routes = [
     path: 'signup',
     title: 'Sign Up Page',
     component: SignupComponent,
-  }
+  },
+  {
+    path: 'blogs', // Route for displaying blogs
+    title: 'Blog List',
+    component: BlogListComponent,
+  },
+  {
+    path: 'blog-create', 
+    title: 'Create Blog',
+    component: BlogCreateComponent,
+  },
 ];

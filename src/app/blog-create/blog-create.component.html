@@ -1,0 +1,15 @@
+<form (ngSubmit)="createBlog()">
+  <div>
+    <label>Title:</label>
+    <input [(ngModel)]="blog.title" name="title" required>
+  </div>
+  <div>
+    <label>Content:</label>
+    <textarea [(ngModel)]="blog.content" name="content" required></textarea>
+  </div>
+  <div>
+    <label>Tags (comma-separated):</label>
+    <input [(ngModel)]="blog.tags" name="tags">
+  </div>
+  <button type="submit">Create Blog</button>
+</form>

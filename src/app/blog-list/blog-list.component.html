@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <h2 class="text-center">Blog Entries</h2>
+
+    <div *ngIf="blogs.length > 0" class="text-center">
+        <div *ngFor="let blog of blogs" class="card mb-3">
+        <div class="card-body">
+            <h4 class="card-title">{{blog.title}}</h4>
+            <p class="card-text">{{blog.content}}</p>
+            <small>Tags: {{blog.tags.join(',')}}</small>
+            
+            <div>
+                
+            </div>
+            
+        </div>
+    </div>
+    </div>
+
+    
+</div>

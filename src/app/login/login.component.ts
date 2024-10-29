@@ -18,6 +18,7 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      role: ['user',[Validators.required]]
     });
   }
 
@@ -25,7 +26,17 @@ export class LoginComponent {
   {
     if(this.loginForm.valid)
       {
+        const loginData = this.loginForm.value;
         console.log('Login data:', this.loginForm.value);
+
+        if (loginData.role === 'admin')
+          {
+            console.log('Admin login');
+          }
+          else
+          {
+            console.log('User login');
+          }
       } 
       else
       {

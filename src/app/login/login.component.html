@@ -3,6 +3,7 @@
     <div class="col-md-4">
       <h3 class="text-center mb-3">Login</h3>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- Email field -->
         <div class="mb-3">
           <label for="email" class="form-label">Email:</label>
           <input id="email" formControlName="email" class="form-control" type="email" />
@@ -12,17 +13,26 @@
           </div>
         </div>
 
+        <!-- Password field -->
         <div class="mb-3">
           <label for="password" class="form-label">Password:</label>
           <input id="password" formControlName="password" class="form-control" type="password" />
           <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
             <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</small>
-            <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
-              Password must be at least 6 characters long
-            </small>
+            <small *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long</small>
           </div>
         </div>
 
+        <!-- Role selection (Admin/User) -->
+        <div class="mb-3">
+          <label for="role" class="form-label">Login as:</label>
+          <select id="role" formControlName="role" class="form-select">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <!-- Submit button -->
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
         </div>
